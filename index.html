@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <title>Todo-List</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+
+    <body>
+        <header class="header">   
+            <h2>My TodoList</h2>
+        </header>    
+  
+        <!-- タブの設定 -->
+        <div class="tabbox">
+            <input type="radio" name="tabset" id="tabcheck1" checked><label for="tabcheck1" class="tab">今日やる事</label>
+            <input type="radio" name="tabset" id="tabcheck2"        ><label for="tabcheck2" class="tab">今週やる事</label>
+            <input type="radio" name="tabset" id="tabcheck3"        ><label for="tabcheck3" class="tab">今月やる事</label>
+         
+            <div class="tabcontent" id="tabcontent1">
+                <div id="app">
+                    <form>
+                     　 <textarea v-model="newtodo"></textarea>
+                        <keep-alive> 
+                            <button v-on:click="addTodo">追加</button>
+                        </keep-alive>    
+                    </form>
+                    <ul>
+                        <li v-for="todo in todos" v-cloak>
+                            {{todo.item}}
+                            <button v-on:click="deleteTodo(todo)">削除</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tabcontent" id="tabcontent2">
+                <div id="app1">
+                    <form>
+                        <textarea v-model="newtodo1"></textarea>
+                        <keep-alive>
+                            <button v-on:click="addTodo1">追加</button>
+                        </keep-alive>    
+                    </form>
+                    <ul>
+                        <li v-for="todo in todos" v-cloak>
+                            {{todo.item}}
+                            <button v-on:click="deleteTodo1(todo)">削除</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tabcontent" id="tabcontent3">
+                <div id="app2">
+                    <form>
+                        <textarea v-model="newtodo2"></textarea>
+                            <keep-alive> 
+                                <button v-on:click="addTodo2">追加</button>
+                            </keep-alive>    
+                    </form>
+                    <ul>
+                        <li v-for="todo in todos" v-cloak>
+                            {{todo.item}}
+                            <button v-on:click="deleteTodo2(todo)">削除</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <!-- タブの設定ここまで -->
+        <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+        <script src="app.js"></script>
+        <script src="app1.js"></script>
+        <script src="app2.js"></script>
+    </body>    
+</html>
